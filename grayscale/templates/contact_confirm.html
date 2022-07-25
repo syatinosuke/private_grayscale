@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}お問い合わせ確認 | Inquiry{% endblock %}
+
+{% block contents %}
+<div class="quot;container-fluid" style="margin-top: 30px;">
+    <div class="kuu" style="margin-top:8em;"></div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-header">お問い合わせ内容確認</div>
+        <div class="card-body">
+          <div class="card-block">
+            <h6 class="card-title">お名前</h6>
+            <p class="card-text" style="word-wrap: break-word;">{{ form.name.value }}</p>
+            <h6 class="card-title">メールアドレス</h6>
+            <p class="card-text" style="word-wrap: break-word;">{{ form.email.value }}</p>
+            <h6 class="card-title">タイトル</h6>
+            <p class="card-text" style="word-wrap: break-word;">{{ form.title.value }}</p>
+            <h6 class="card-title">メッセージ</h6>
+            <p class="card-text pb-3" style="word-wrap: break-word;">{{ form.message.value }}</p>
+            <form class="my-form" action="{% url 'grayscale:contact_send' %}" method="POST">
+                <div class="row">
+                    <div class="form-group col-md-11">
+                        <div style="display:none">
+                            {{ form }}
+                            {% csrf_token %}
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-5 mb-3">送信</button>
+                        <a href="{% url 'grayscale:inquiry' %}" class="btn btn-success mt-5 mb-3">戻る</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+</div><!-- end card-body-->
+</div><!-- end card-->
+</div>
+</div><!-- end row -->
+</div><!-- end container-fluid-->
+{% endblock %}

@@ -1,0 +1,72 @@
+.my-div-style {
+    margin-top: 6rem;
+  }
+
+.content {
+    margin-top: -70px;
+    text-align: center;
+  }
+
+
+  
+/*.btn-primary {
+  color: #fff;
+  background-color: #64a19d;
+  border-color: #64a19d;
+  }
+.btn-primary:hover {
+  color: #fff;
+  background-color: #558985;
+  border-color: #50817e;
+  }
+.btn-check:focus + .btn-primary, .btn-primary:focus {
+  color: #fff;
+  background-color: #558985;
+  border-color: #50817e;
+  box-shadow: 0 0 0 0.25rem rgba(123, 175, 172, 0.5);
+  }
+.btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #50817e;
+  border-color: #4b7976;
+  }
+.btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.25rem rgba(123, 175, 172, 0.5);
+  }
+.btn-primary:disabled, .btn-primary.disabled {
+  color: #fff;
+  background-color: #64a19d;
+  border-color: #64a19d;
+  }
+  
+
+
+  .btn-return {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+  .btn-return:hover {
+    color: #fff;
+    background-color: #bb2d3b;
+    border-color: #b02a37;
+  }
+  .btn-check:focus + .btn-return, .btn-return:focus {
+    color: #fff;
+    background-color: #bb2d3b;
+    border-color: #b02a37;
+    box-shadow: 0 0 0 0.25rem rgba(225, 83, 97, 0.5);
+  }
+  .btn-check:checked + .btn-return, .btn-check:active + .btn-return, .btn-return:active, .btn-return.active, .show > .btn-return.dropdown-toggle {
+    color: #fff;
+    background-color: #b02a37;
+    border-color: #a52834;
+  }
+  .btn-check:checked + .btn-return:focus, .btn-check:active + .btn-return:focus, .btn-return:active:focus, .btn-return.active:focus, .show > .btn-return.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.25rem rgba(225, 83, 97, 0.5);
+  }
+  .btn-return:disabled, .btn-return.disabled {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }*/
