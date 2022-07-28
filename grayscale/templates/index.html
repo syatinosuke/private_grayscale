@@ -24,6 +24,10 @@
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="#page-top">TOP PAGE</a>
                 <a class="nav-link {% block active_inquiry %}{% endblock %}" href="{% url 'grayscale:inquiry' %}">INQUIRY</a>
+                {% if user.is_authenticated %}
+                <a class="nav-link {% block active_grayscale_list %}{% endblock %}" href="{% url 'grayscale:grayscale_list' %}">DIARY LIST</a>
+                {% endif %}
+                <a class="nav-link {% block active_diary_share %}{% endblock %}" href="{% url 'grayscale:diary_share' %}">SHARE LIST</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>

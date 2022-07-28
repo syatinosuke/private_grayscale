@@ -14,5 +14,6 @@ urlpatterns = [
     path('grayscale-create/', views.GrayscaleCreateView.as_view(), name="grayscale_create"),
     path('grayscale-update/<int:pk>/', views.GrayscaleUpdateView.as_view(), name="grayscale_update"),
     path('grayscale-delete/<int:pk>/', views.GrayscaleDeleteView.as_view(), name="grayscale_delete"),
+    path('diary_share/',views.ShareListView.as_view(),name='diary_share'),
 
 ]

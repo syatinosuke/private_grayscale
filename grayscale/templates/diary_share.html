@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}共有日記一覧 | Share Diary{% endblock %}
+
+{% block active_diary_share_list %}active{% endblock %}
+
+{% block navbar %}<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top navbar-shrink" id="mainNav">{% endblock %}
+
+{% block head %}
+<link href="{% static 'css/clean-blog.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block contents %}
+<div class="container px-4 px-lg-5 my-div-style">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <div class="d-flex justify-content-end mb-4">
+            </div>
+            <form method="get">
+                <input type="search" value="{{ request.GET.query }}" name="query" type="text" placeholder="タイトルを検索">
+                <button>検索</button>
+            </form>
+            <div class="row">
+                <div class="col-sm-4">
+                    <a class="btn btn-outline-primary btn-block" href="https://twitter.com/share?url={{ request.scheme }}://{{ request.get_host }}{% url 'grayscale:diary_share' %}&text=記事一覧 - ホームページ名" target="_blank" rel="nofollow">
+                        Twitterでシェア
+                    </a>
+                </div>
+                <div class="col-sm-4">
+                    <a class="btn btn-outline-primary btn-block" href="https://www.facebook.com/sharer/sharer.php?u={{ request.scheme }}://{{ request.get_host }}{% url 'grayscale:diary_share' %}" target="_blank" rel="nofollow">
+                    FaceBookでシェア
+                    </a>
+                </div>
+            </div>
+
+            {% for grayscale in diary_share %}
+            <div class="post-preview">
+                <a href="{% url 'grayscale:grayscale_detail' grayscale.pk %}">
+                    <h2 class="post-title">
+                        {{ grayscale.title }}
+                    </h2>
+                    <h3 class="post-subtitle">
+                        {% if grayscale.content != '' %}
+                        {{ grayscale.content|truncatechars:20 }}
+                        {% else %}
+                        {{'※本文が入力されていません'}}
+                        {% endif %}
+                    </h3>  
+                </a>
+                <p class="post-meta">{{ grayscale.created_at }}</p>
+            </div>
+            <hr class="my-4">
+            {% empty %}
+            <p>日記がありません。</p>
+            {% endfor %}
+
+            <!-- ページネーション処理 -->
+            {% if is_paginated %}
+            <ul class="pagination">
+                <!-- 前ページへのリンク -->
+                {% if page_obj.has_previous %}
+                    <!--検索結果がある場合-->
+                    {% if request.GET.query %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}&query={{ request.GET.query }}">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                {% endif %}
+
+                <!-- ページ数表示 -->
+                {% for page_num in page_obj.paginator.page_range %}
+                {% if request.GET.query %}
+                {% if page_obj.number == page_num %}
+                <li class="page-item active"><a class="page-link" href="#">{{ page_num }}</a></li>
+                {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_num }}&query={{ request.GET.query }}">{{ page_num }}</a></li>
+                {% endif %}
+                {% else %}
+                {% if page_obj.number == page_num %}
+                <li class="page-item active"><a class="page-link" href="#">{{ page_num }}</a></li>
+                {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a></li>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+
+                <!-- 次ページへのリンク -->
+                {% if page_obj.has_next %}
+                    {% if request.GET.query %} 
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}&query={{ request.GET.query }}">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                {% endif %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
