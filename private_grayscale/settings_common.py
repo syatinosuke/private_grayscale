@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'private_grayscale.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'group_admin',
+        'NAME': 'private_grayscale',
         'USER':os.environ.get('DB_USER'),
         'PASSWORD':os.environ.get('DB_PASSWORD'),
         'HOST':'',
