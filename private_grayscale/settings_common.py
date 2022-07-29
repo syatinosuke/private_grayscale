@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'grayscale',
         'USER':os.environ.get('DB_USER'),
-        'PASSWORD':os.environ.get('USER'),
+        'PASSWORD':os.environ.get('DB_PASSWORD'),
         'HOST':'',
         'PORT':'',
     }
